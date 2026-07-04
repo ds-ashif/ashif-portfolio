@@ -15,16 +15,16 @@ const SEPARATOR: React.CSSProperties = {
 
 const SECTION: React.CSSProperties = {
   position: "relative",
-  marginTop: 80,
-  paddingTop: 80,
-  paddingBottom: 96,
+  marginTop: "clamp(32px,6vw,80px)",
+  paddingTop: "clamp(40px,7vw,80px)",
+  paddingBottom: "clamp(48px,8vw,96px)",
   overflow: "hidden",
 };
 
 const CONTAINER: React.CSSProperties = {
   maxWidth: 1100,
   margin: "0 auto",
-  padding: "0 24px",
+  padding: "0 clamp(14px,4vw,24px)",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -108,8 +108,8 @@ export default function Skills() {
             marginTop: 40,
             width: "100%",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-            gap: 16,
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 200px), 1fr))",
+            gap: 14,
           }}
         >
           <AnimatePresence mode="popLayout">

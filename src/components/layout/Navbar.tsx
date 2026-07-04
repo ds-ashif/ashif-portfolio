@@ -61,7 +61,7 @@ export default function Navbar() {
           aria-hidden
         />
 
-        <nav className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-12">
+        <nav className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between h-12">
           {/* Logo */}
           <motion.button
             onClick={() => scrollTo("#hero")}
@@ -121,13 +121,13 @@ export default function Navbar() {
             </motion.a>
           </div>
 
-          {/* Mobile burger */}
+          {/* Mobile burger — only shows hamburger icon */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2.5 rounded-xl glass text-white/70 hover:text-white transition-colors"
-            aria-label="Toggle menu"
+            aria-label="Open menu"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            <Menu size={20} />
           </button>
         </nav>
       </motion.header>
@@ -140,46 +140,64 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-0 z-40 pt-[68px] pb-6 px-6 border-b border-white/10"
-            style={{ background: "rgba(0,0,0,0.96)", backdropFilter: "blur(20px)" }}
+            className="fixed inset-x-0 top-0 z-40 border-b border-white/10"
+            style={{ background: "rgba(0,0,0,0.97)", backdropFilter: "blur(24px)" }}
           >
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((link, i) => (
+            {/* Header row inside drawer — logo + close button */}
+            <div className="flex items-center justify-between px-4 sm:px-6 h-[72px]">
+              
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2.5 rounded-xl glass text-white/70 hover:text-white transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Divider */}
+            <div className="h-px bg-white/[0.06] mx-4" />
+
+            {/* Nav links */}
+            <div className="px-4 sm:px-6 pt-3 pb-6">
+              <ul className="flex flex-col gap-1">
+                {navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <button
+                      onClick={() => scrollTo(link.href)}
+                      className={cn(
+                        "w-full text-left px-4 py-3.5 rounded-xl text-base font-medium transition-all",
+                        activeSection === link.href.replace("#", "")
+                          ? "bg-white/[0.08] text-white border border-white/[0.12]"
+                          : "text-white/60 hover:text-white hover:bg-white/[0.04]"
+                      )}
+                    >
+                      {link.label}
+                    </button>
+                  </motion.li>
+                ))}
                 <motion.li
-                  key={link.href}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  className="mt-3"
                 >
-                  <button
-                    onClick={() => scrollTo(link.href)}
-                    className={cn(
-                      "w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all",
-                      activeSection === link.href.replace("#", "")
-                        ? "bg-white/[0.07] text-white border border-white/10"
-                        : "text-white/60 hover:text-white hover:bg-white/[0.04]"
-                    )}
+                  <a
+                    href={personalInfo.resume}
+                    download="Ashif_Ahamad_Resume.pdf"
+                    className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-center font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white"
                   >
-                    {link.label}
-                  </button>
+                    <Download size={15} />
+                    Download Resume
+                  </a>
                 </motion.li>
-              ))}
-              <motion.li
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-                className="mt-2"
-              >
-                <a
-                  href={personalInfo.resume}
-                  download="Ashif_Ahamad_Resume.pdf"
-                  className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-center font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                >
-                  <Download size={15} />
-                  Download Resume
-                </a>
-              </motion.li>
-            </ul>
+              </ul>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

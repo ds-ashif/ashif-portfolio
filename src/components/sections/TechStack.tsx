@@ -21,9 +21,9 @@ const SEPARATOR: React.CSSProperties = {
 
 const SECTION: React.CSSProperties = {
   position: "relative",
-  marginTop: 80,
-  paddingTop: 80,
-  paddingBottom: 96,
+  marginTop: "clamp(32px,6vw,80px)",
+  paddingTop: "clamp(40px,7vw,80px)",
+  paddingBottom: "clamp(48px,8vw,96px)",
   overflow: "hidden",
 };
 
@@ -229,7 +229,7 @@ export default function TechStack() {
         }}
       />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(14px,4vw,24px)" }}>
         <SectionHeader
           label="Technologies"
           title="Floating Tech"
@@ -245,13 +245,13 @@ export default function TechStack() {
           transition={{ duration: 0.75, delay: 0.2 }}
           style={{ marginTop: 48 }}
         >
-          {/* Canvas wrapper — explicit height so canvas renders correctly */}
+          {/* Canvas wrapper — responsive height */}
           <div
             ref={wrapperRef}
             style={{
               position: "relative",
               width: "100%",
-              height: 440,
+              height: "clamp(280px, 50vw, 440px)",
               borderRadius: 20,
               overflow: "hidden",
               background: "rgba(255,255,255,0.02)",

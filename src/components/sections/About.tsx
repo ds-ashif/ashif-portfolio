@@ -76,18 +76,13 @@ function OrbitingVisual() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div style={{ position: "relative", width: 280, height: 280, margin: "0 auto", flexShrink: 0 }}>
-      {/* Ambient glow behind avatar */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute", inset: 0, borderRadius: "50%",
-          filter: "blur(40px)", opacity: 0.25, pointerEvents: "none",
-          background: "radial-gradient(circle, rgba(139,92,246,0.8), transparent 70%)",
-        }}
-      />
+    <div style={{ position:"relative", width:"min(280px, 90vw)", height:"min(280px, 90vw)", margin:"0 auto", flexShrink:0 }}>
+      <div aria-hidden style={{
+        position:"absolute", inset:0, borderRadius:"50%",
+        filter:"blur(40px)", opacity:.25, pointerEvents:"none",
+        background:"radial-gradient(circle, rgba(139,92,246,0.8), transparent 70%)",
+      }} />
 
-      {/* Orbit rings — client only */}
       {mounted && (
         <>
           <OrbitRing radius={130} duration={18} reverse items={orbitTechs.slice(3)} />
@@ -95,38 +90,34 @@ function OrbitingVisual() {
         </>
       )}
 
-      {/* Centre avatar — large, circular photo */}
-      <div
-        style={{
-          position: "absolute",
-          width: 155, height: 155,
-          top: "50%", left: "50%",
-          transform: "translate(-50%, -50%)",
-          borderRadius: "50%",
-          overflow: "hidden",
-          zIndex: 10,
-          border: "3px solid rgba(139,92,246,0.6)",
-          // boxShadow: "0 0 32px rgba(139,92,246,0.4), 0 0 0 6px rgba(139,92,246,0.08)",
-          background: "linear-gradient(135deg,#7c3aed,#2563eb)",
-        }}
-      >
+      <div style={{
+        position:"absolute",
+        width:120, height:120,
+        top:"50%", left:"50%",
+        transform:"translate(-50%, -50%)",
+        borderRadius:"50%",
+        overflow:"hidden",
+        zIndex:10,
+        border:"3px solid rgba(139,92,246,0.6)",
+        boxShadow:"0 0 32px rgba(139,92,246,0.4), 0 0 0 6px rgba(139,92,246,0.08)",
+        background:"linear-gradient(135deg,#7c3aed,#2563eb)",
+      }}>
         {!imgError ? (
           <Image
             src={personalInfo.avatar}
             alt={personalInfo.fullName}
             width={120}
             height={120}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+            style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top" }}
             onError={() => setImgError(true)}
             priority
           />
         ) : (
-          /* Fallback: gradient + initial */
           <div style={{
-            width: "100%", height: "100%",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            background: "linear-gradient(135deg,#7c3aed,#2563eb)",
-            fontSize: 42, fontWeight: 900, color: "#fff",
+            width:"100%", height:"100%",
+            display:"flex", alignItems:"center", justifyContent:"center",
+            background:"linear-gradient(135deg,#7c3aed,#2563eb)",
+            fontSize:42, fontWeight:900, color:"#fff",
           }}>
             {personalInfo.name[0]}
           </div>
@@ -138,15 +129,14 @@ function OrbitingVisual() {
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 md:py-36 overflow-hidden" aria-label="About">
-      {/* Background glow */}
+    <section id="about" className="relative overflow-hidden" aria-label="About"
+      style={{ paddingTop: "clamp(40px,8vw,112px)", paddingBottom: "clamp(40px,8vw,112px)" }}>
       <div
         className="absolute right-[-8%] top-1/3 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(59,130,246,0.5), transparent 70%)" }}
         aria-hidden
       />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <SectionHeader
           label="About Me"
           title="Crafting Digital"

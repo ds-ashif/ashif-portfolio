@@ -119,7 +119,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-label="Contact"
-      style={{ marginTop: 80, paddingTop: 80, paddingBottom: 80, position: "relative", overflow: "hidden" }}
+      style={{ marginTop: "clamp(32px,6vw,80px)", paddingTop: "clamp(40px,7vw,80px)", paddingBottom: "clamp(48px,8vw,80px)", position: "relative", overflow: "hidden" }}
     >
       <div style={{ position: "absolute", inset: "0 0 auto 0", height: 1, ...SEPARATOR }} aria-hidden />
       <div
@@ -132,7 +132,7 @@ export default function Contact() {
         }}
       />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(14px,4vw,24px)" }}>
         <SectionHeader
           label="Contact"
           title="Mission"
@@ -225,7 +225,7 @@ export default function Contact() {
               </h3>
 
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <div className="contact-name-email-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   {[
                     { id: "name",  label: "Your Name",      type: "text",  placeholder: "Sam" },
                     { id: "email", label: "Email Address",  type: "email", placeholder: "you@example.com" },
@@ -308,7 +308,7 @@ export default function Contact() {
                     {status === "error" && (
                       <motion.span key="err" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                         style={{ display: "flex", alignItems: "center", gap: 8, color: "#f87171" }}>
-                        <AlertCircle size={16} /> Try Again
+                        <AlertCircle size={16} /> Message is too short or Invalid Email Address. Try Again!
                       </motion.span>
                     )}
                   </AnimatePresence>
@@ -320,6 +320,10 @@ export default function Contact() {
       </div>
 
       <style>{`
+        @media (max-width: 640px) {
+          .contact-name-email-grid { grid-template-columns: 1fr !important; }
+          .lg-contact-grid { grid-template-columns: 1fr !important; }
+        }
         @media (max-width: 900px) {
           .lg-contact-grid { grid-template-columns: 1fr !important; }
         }

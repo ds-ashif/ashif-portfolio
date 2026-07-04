@@ -65,7 +65,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ position: "relative", overflow: "hidden", borderTop: "1px solid rgba(255,255,255,0.05)", marginTop: 80 }}>
+    <footer style={{ position: "relative", overflow: "hidden", borderTop: "1px solid rgba(255,255,255,0.05)", marginTop: "clamp(32px,6vw,80px)" }}>
       <div style={{ position: "absolute", inset: 0 }}>
         <ConstellationCanvas />
         <div aria-hidden style={{
@@ -76,7 +76,7 @@ export default function Footer() {
         }} />
       </div>
 
-      <div style={{ position: "relative", zIndex: 10, maxWidth: 1280, margin: "0 auto", padding: "64px 24px" }}>
+      <div style={{ position: "relative", zIndex: 10, maxWidth: 1280, margin: "0 auto", padding: "clamp(40px,6vw,64px) clamp(14px,4vw,24px)" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 40, marginBottom: 48 }}
           className="footer-grid">
           {/* Brand */}
@@ -184,7 +184,10 @@ export default function Footer() {
 
       <style>{`
         @media (max-width: 768px) {
-          .footer-grid { grid-template-columns: 1fr !important; }
+          .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { gap: 24px !important; }
         }
         @keyframes pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
       `}</style>

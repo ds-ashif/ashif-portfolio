@@ -206,7 +206,7 @@ export default function Projects() {
     <section
       id="projects"
       aria-label="Projects"
-      style={{ marginTop: 80, paddingTop: 80, paddingBottom: 80, position: "relative", overflow: "hidden" }}
+      style={{ marginTop: "clamp(32px,6vw,80px)", paddingTop: "clamp(40px,7vw,80px)", paddingBottom: "clamp(48px,8vw,80px)", position: "relative", overflow: "hidden" }}
     >
       {/* Top separator */}
       <div style={{ position: "absolute", inset: "0 0 auto 0", height: 1, ...SEPARATOR }} aria-hidden />
@@ -222,7 +222,7 @@ export default function Projects() {
         }}
       />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(14px,4vw,24px)" }}>
         <SectionHeader
           label="My Work"
           title="Cosmic"
@@ -259,7 +259,7 @@ export default function Projects() {
         {/* Grid */}
         <motion.div
           layout
-          style={{ marginTop: 40, display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 20, alignItems: "start" }}
+          style={{ marginTop: 40, display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,300px),1fr))", gap: 20, alignItems: "start" }}
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (

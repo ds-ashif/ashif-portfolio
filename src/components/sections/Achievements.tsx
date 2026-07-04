@@ -15,7 +15,7 @@ export default function Achievements() {
     <section
       id="achievements"
       aria-label="Achievements"
-      style={{ marginTop: 80, paddingTop: 80, paddingBottom: 80, position: "relative", overflow: "hidden" }}
+      style={{ marginTop: "clamp(32px,6vw,80px)", paddingTop: "clamp(40px,7vw,80px)", paddingBottom: "clamp(48px,8vw,80px)", position: "relative", overflow: "hidden" }}
     >
       <div style={{ position: "absolute", inset: "0 0 auto 0", height: 1, ...SEPARATOR }} aria-hidden />
 
@@ -29,7 +29,7 @@ export default function Achievements() {
         }}
       />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(14px,4vw,24px)" }}>
         <SectionHeader
           label="Milestones"
           title="Galactic"
