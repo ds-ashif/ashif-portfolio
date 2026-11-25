@@ -56,7 +56,7 @@ export const experiences = [
     duration: "Dec 2025 – Present",
     location: "Mumbai, India",
     description:
-      "Completed a corporate training program at Capgemini India as part of the cohort, working on enterprise-grade full-stack development. Built a production-ready 4-microservice ECommerce system and earned the Capgemini Exceller Edge Fellowship on program completion.",
+      "underwent a corporate training program at Capgemini India as part of the cohort, working on enterprise-grade full-stack development. Built a production-ready 4-microservice ECommerce system and earned the Capgemini Exceller Edge Fellowship on program completion.",
     achievements: [
       "Architected a 4-microservice backend (Identity, Catalog, Workflow, AdminReporting) behind an Ocelot API Gateway handling role-based routing for 4 user roles",
       "Implemented JWT-based RBAC with Angular route guards and ASP.NET Core [Authorize(Roles)], securing 15+ private API routes across all microservices",
@@ -239,7 +239,7 @@ export const achievements = [
     title: "Capgemini Exceller Edge Fellowship",
     subtitle: "Corporate Recognition — Capgemini India",
     description:
-      "Awarded the Capgemini Exceller Edge Fellowship on completion of the A4 Analyst corporate training program — recognising consistent performance across enterprise full-stack development, microservices architecture, and software engineering practices.",
+      "Awarded the Capgemini Exceller Edge Fellowship on completion of the Pre-Onboarding training program — recognising consistent performance across enterprise full-stack development, microservices architecture, and software engineering practices.",
     icon: "🏅",
     type: "fellowship",
     year: "2026",
