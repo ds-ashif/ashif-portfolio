@@ -51,12 +51,12 @@ export const skills = [
 export const experiences = [
   {
     id: 1,
-    role: "Analyst (A4)",
+    role: "Software Engineer",
     company: "Capgemini India",
-    duration: "Dec 2025 – Jun 2026",
-    location: "Punjab, India",
+    duration: "Dec 2025 – Present",
+    location: "Mumbai, India",
     description:
-      "Completed a corporate training program at Capgemini India as part of the A4 Analyst cohort, working on enterprise-grade full-stack development. Built a production-ready 4-microservice ECommerce system and earned the Capgemini Exceller Edge Fellowship on program completion.",
+      "Completed a corporate training program at Capgemini India as part of the cohort, working on enterprise-grade full-stack development. Built a production-ready 4-microservice ECommerce system and earned the Capgemini Exceller Edge Fellowship on program completion.",
     achievements: [
       "Architected a 4-microservice backend (Identity, Catalog, Workflow, AdminReporting) behind an Ocelot API Gateway handling role-based routing for 4 user roles",
       "Implemented JWT-based RBAC with Angular route guards and ASP.NET Core [Authorize(Roles)], securing 15+ private API routes across all microservices",
